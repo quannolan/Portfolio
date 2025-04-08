@@ -1,15 +1,18 @@
 /* Reset cơ bản */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "IBM Plex Mono", monospace;;
   }
   
   body {
     background-image: url("image/background.jpg");
     background-size: cover;
     background-position: center;
-    font-family: sans-serif;
     height: 100vh;
     color: white;
   }
@@ -19,18 +22,24 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background: rgba(128, 128, 128, 0.5);
+    background: rgba(169, 169, 169, 0.942);
     backdrop-filter: blur(3px);
-    /* margin: 40px auto; */
     max-width: 1200px;
     width: 100%;
-    /* padding: 10px; */
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    /* gap: 30px; */
     justify-content: space-between;
     height: calc(100vh - 100px);
+  }
+
+  .tree-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    z-index: -5;
   }
   
   /* Header và Footer */
@@ -40,7 +49,7 @@
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    padding: 20px;
+    padding: 0px 20px;
   }
  
   .logo, .menu-icon {
@@ -61,34 +70,34 @@
     cursor: pointer;
   }
   
+  .line {
+    display: flex;
+    align-items: center;
+  }
+
   .nav-line {
     height: 2px;
     background: #fff;
-    /* padding-left: 20px; */
-    margin: auto;
-    /* justify-content: center;  */
-    width: calc(100% - 40px);
+    /* position: relative; */
+    margin: 0px auto;
+    /* width: calc(100% - 40px); */
+    width: 45%;
+  }
+  .circle {
+    height: 30px;
+    width: 30px;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+    /* position: absolute; */
+    /* margin: auto; */
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%,-50%); */
   }
 
 
 
-  footer {
-    justify-content: space-evenly;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px 30px 20px;
-  }
 
-  /* .nav-line {
-    height: 2px;
-    width: 100%;
-    background: white;
-    margin-bottom: 20px;
-    bottom: -30px;
-  } */
-  
- 
 
 
 
@@ -100,67 +109,75 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 90px;
   }
   
-  .card {
+
+  
+  .card.left {
     position: absolute;
-    width: 150px;
-    height: 270px;
+    top: 50%;
+    left: 10%;
+    transform: translate(30%, -50%);
+    width: 120px;
+    height: 260px;
+    border-radius: 20px;
+    /* overflow: hidden; */
+    /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.588); */
+  }
+  .card.right {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(-30%, -50%);
+    width: 120px;
+    height: 260px;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
-    transition: transform 0.4s ease, z-index 0.4s ease;
+    /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.588); */
   }
-  .card.center {
-    position: absolute;
-    width: 200px;
-    height: 320px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
-    transition: transform 0.4s ease, z-index 0.4s ease;
-  }
-/* Xếp từng thẻ với vị trí lệch nhau */
-.card:nth-child(1) {
-  transform: translateX(-220px) scale(0.9);
-  z-index: 1;
-}
 
-.card:nth-child(2) {
-  transform: translateX(-110px) scale(0.95);
-  z-index: 2;
-}
-
-.card:nth-child(3) {
-  transform: translateX(0px) scale(1);
+  .card.large {
+  left: 50%;
   z-index: 3;
+  width: 250px !important;
+  height: 420px !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.588);
+  }
+
+  .card.medium.left {
+    left: 20%; 
+    z-index: 2;
+    width: 170px;
+    height: 340px;
+    /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.588); */
+    }
+  .card.medium.right {
+    right: 20%; 
+    z-index: 2;
+    width: 170px;
+    height: 340px;
+    /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.588); */
+  }
+
+
+
+.card {
+  text-align: center;
+
 }
-
-.card:nth-child(4) {
-  transform: translateX(110px) scale(0.95);
-  z-index: 2;
-}
-
-.card:nth-child(5) {
-  transform: translateX(220px) scale(0.9);
-  z-index: 1;
-}
-
-
-
-
-
-
   
 
- .card.center:hover {
-    transform: scale(1.05);
-    z-index: 10;
-  }
+ .card img:hover {
+  margin-top: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
   
   .card img {
-    width: 100%;
-    height: 100%;
+    width: 96%;
+    height: 96%;
+    margin-top: 8px;
     object-fit: cover;
     border-radius: 20px;
   }
@@ -194,29 +211,43 @@
     cursor: pointer;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
     animation: pulseGlow 2s infinite ease-in-out;
-    margin-top: 30px;
+    margin-top: 40px;
+    margin-bottom: -100px;
   }
   
+  footer {
+    position: relative;
+    height: 15%;
+    width: calc(100% - 40px);
+    border: 2px solid white;
+    background: rgb(255, 255, 255, 30%);
+    border-radius: 16px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 100px;
+    transform: translateY(10px);
+  }
+ 
+
   /* Footer buttons */
-  footer button {
+  /* footer button {
     background: transparent;
     border: 1px solid white;
-    /* padding: 0px 20px; */
-    border-radius: 12px;
     color: white;
     cursor: pointer;
-  }
+  } */
   
   /* -------------------- Footer BTN Fancy -------------------- */
   .footer-btn {
-    width: 160px;
-    height: 48px;
-    /* margin: 0 10px; */
+    width: 200px;
+    height: 60px;
     font-size: 1rem;
     color: #ffffff;
     background: transparent;
     border: 2px solid #ffffff;
-    border-radius: 8px;
+    border-radius: 16px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -245,7 +276,7 @@
   
   .footer-btn:hover {
     transform: scale(1.05);
-    color: #00ffe7;              /* màu xanh nhạt hoặc đổi theo bạn */
+    color: #00ffe7;             
     border-color: #00ffe7;
   }
   
