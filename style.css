@@ -289,3 +289,73 @@ body, html {
 
 @keyframes rotateRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
+
+/* ! ============================================================
+   * RESPONSIVE LAYOUT (MOBILE & TABLET)
+   * Target: < 768px
+    ! [Màu Đỏ]: Cảnh báo hoặc Code quan trọng (Ví dụ: !important) 
+    ? Cần kiểm tra lại hoặc thắc mắc 
+    * [Màu Xanh Lá]: Ghi chú thông tin chi tiết 
+    TODO [Màu Cam]: Những việc cần làm tiếp theo
+    // [Màu Xám gạch ngang]: Code này bỏ đi hoặc không dùng nữa
+   ============================================================== */
+   
+
+/* ! ============================================================
+   * 1. TABLET RESPONSIVE (Từ 769px đến 1024px)
+   * Phù hợp cho iPad, máy tính bảng nằm ngang/dọc
+   ============================================================== */
+@media (max-width: 1024px) {
+    .glass-panel {
+        width: 80%;
+        height: 80vh; /* Vẫn giữ được style One Screen */
+    }
+    
+    /* ? Tablet có không gian hơn nên có thể giữ layout ngang nhưng thu nhỏ lại */
+    .info-content-wrapper {
+        gap: 20px;
+    }
+}
+
+/* ! ============================================================
+   * 2. MOBILE RESPONSIVE (Dưới 768px)
+   * Phù hợp cho iPhone, Samsung, các dòng điện thoại phổ biến
+   ============================================================== */
+@media (max-width: 768px) {
+    .glass-panel {
+        width: 80%;
+        height: auto; 
+        min-height: 80vh;
+        flex-direction: column; /* Chuyển sang layout dọc */
+        padding: 30px 15px;
+        justify-content: flex-start; /* Đẩy nội dung lên trên để không bị che */
+    }
+
+    .info-content-wrapper {
+        flex-direction: column-reverse; /* Ảnh lên trên, text dưới hoặc ngược lại */
+        gap: 15px;
+    }
+
+    .user-description p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* * Ẩn các chi tiết quá rườm rà trên Mobile */
+    .info-numbers-side, .avatar-ring {
+        display: none;
+    }
+}
+
+/* ! ============================================================
+   * 3. SMALL MOBILE (Dưới 480px)
+   * Cho các dòng điện thoại đời cũ hoặc màn hình rất nhỏ
+   ============================================================== */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+    .glass-panel {
+        padding: 15px;
+    }
+}
