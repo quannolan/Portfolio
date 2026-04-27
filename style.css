@@ -11,10 +11,6 @@ body, html {
 
 }
 
-h1  {
-  color: #fff !important;
-}
-
 /* Background chính của trang */
 .main-container {
   height: 100vh;
