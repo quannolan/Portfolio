@@ -1,0 +1,290 @@
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+body, html {
+  margin: 0;
+  height: 100%;
+  font-family: 'Courier New', Courier, monospace;
+  background: #1a1a1a; /* Màu nền dự phòng */
+}
+
+/* Background chính của trang */
+.main-container {
+  height: 100vh;
+  background: url('/img/background-moutain.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Panel kính mờ */
+.glass-panel {
+  width: 80%;
+  max-width: 1000px;
+  height: 600px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border);
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+/* Căn chỉnh các thẻ điện thoại */
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 40px;
+  perspective: 1000px;
+}
+
+.card {
+  background: #000;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.card.center {
+  width: 180px;
+  height: 300px;
+  z-index: 3;
+  transform: scale(1.1);
+  border: 1px solid #ff00ff; /* Ánh sáng neon */
+}
+
+.card.side {
+  width: 150px;
+  height: 250px;
+  opacity: 0.7;
+}
+
+.card img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover ;
+}
+
+/* Nút play my journey */
+.play-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.play-btn {
+  position: relative; /* Quan trọng để các layer con căn theo nút này */
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tạo hình tam giác Play */
+.play-btn::before {
+  content: '';
+  position: absolute;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 18px solid #fff; /* Màu tam giác */
+  margin-left: 4px; /* Đẩy sang phải một chút để cảm giác cân đối hơn trong vòng tròn */
+}
+
+/* Hiệu ứng sóng lan tỏa */
+.play-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: #fff solid 2px;
+  border-radius: 50%;
+  animation: ringPulse 1.5s infinite ease-out;
+  pointer-events: none; /* Tránh cản trở việc click */
+}
+
+@keyframes ringPulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+/* Hiệu ứng hover cho mượt */
+.play-btn:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+/* Thanh điều hướng bên dưới */
+/* Container của thanh điều hướng */
+
+.footer-nav {
+    width: 95%; /* Làm thanh nav dài ra một chút cho sang */
+    align-self: center;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px); /* Thêm mờ cho riêng thanh nav */
+    padding: 8px; /* Giảm padding trên dưới để thanh gọn hơn */
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* ĐIỀU CHỈNH Ở ĐÂY */
+    margin-top: auto; /* Đảm bảo nó luôn nằm dưới cùng */
+    margin-bottom: 10px; /* Khoảng cách với mép dưới tấm kính (chỉnh số này nhỏ lại nếu muốn thấp nữa) */
+    
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Thêm viền siêu mảnh cho xịn */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6);
+    /* 12px trên dưới, trái phải để 0 vì flex sẽ lo phần đó */
+    padding: 12px 0; 
+    border-radius: 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    /* Giúp 3 nút có độ rộng bằng chằn chặn nhau */
+    flex: 1; 
+}
+
+.nav-link:hover {
+    color: #00ffff;
+}
+
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    /* Giữ nguyên flex 1 để nó không bị to bất thường so với nút khác */
+    flex: 1; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Header icons */
+.header {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+/* CSS cho Logo link */
+.logo-link {
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.logo-link:hover {
+  transform: scale(1.);
+}
+
+/* -------------------------------------------------- */
+/* Layout chính của trang Information */
+
+
+.line {
+    border-top: 2px solid #00ffff; /* Dùng border để tạo đường kẻ */
+    width: 60px;                  /* Độ dài ngắn tùy ý bro */
+    margin: 24px 0;               /* Khoảng cách trên dưới cho thoáng */
+}
+
+
+
+.info-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1; /* Chiếm không gian giữa header và footer */
+  padding: 0 40px;
+}
+
+/* Cột chữ bên trái */
+.info-text-side { flex: 2; color: #fff; }
+.user-name { font-size: 28px; letter-spacing: 2px; margin-bottom: 5px; }
+.user-title { color: #ffffff; font-size: 14px; margin-bottom: 20px; }
+.user-description { font-size: 13px; line-height: 1.6; opacity: 0.8; max-width: 400px; }
+.highlight-text { font-weight: bold; font-size: 13px; line-height: 1.6; max-width: 400px;}
+
+/* Cột Avatar ở giữa */
+.info-avatar-side { flex: 2; display: flex; justify-content: center; position: relative; }
+.avatar-holder {
+  width: 280px; height: 280px;
+  position: relative;
+  border-radius: 50%;
+  padding: 15px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.avatar-holder img {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+/* Vòng tròn trang trí xung quanh ảnh */
+.avatar-ring {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  border: 3px solid transparent;
+  border-top-color: #00ffff;
+  border-bottom-color: #00ffff;
+  border-radius: 50%;
+  animation: rotateRing 10s linear infinite;
+}
+
+/* Cột số bên phải */
+.info-numbers-side {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: flex-end;
+}
+.num-item {
+  color: rgba(255,255,255,0.3);
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.num-item.active {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+.user-description, .user-name, .avatar-holder img {
+    transition: all 0.5s ease-in-out;
+}
+
+
+.num-item:hover {
+    color: #00ffff;
+    transform: scale(1.2);
+}
+
+@keyframes rotateRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
