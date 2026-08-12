@@ -1,40 +1,264 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nguyen Hoang Quan | Portfolio</title>
-    <link rel="icon" type="image/svg" href="img/favicon.svg">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="main-container">
-  <div class="glass-panel">
-    <div class="header">
-      <a href="index.html" class="logo-link">
-        <img src="img/logo.svg" alt="Logo" class="logo"></a>
-      <div class="menu-icon"><img src="img/icon-menu.svg" ></div>
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nguyen Hoang Quan | Product Designer Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <canvas id="interactive-canvas"></canvas>
+
+    <div class="container">
+      <header>
+        <a href="index.html" class="logo">
+          <img
+            src="./assets/img/logo_wolf.svg"
+            alt="Wolf Logo"
+            class="logo-img"
+          />
+        </a>
+        <a href="#about-section" class="btn-contact">About Me</a>
+      </header>
+
+      <div class="hero-headline">
+        <h1>NGUYEN HOANG QUAN</h1>
+        <p>PRODUCT DESIGNER</p>
+      </div>
+
+      <div class="showcase-panel">
+        <div class="nav-arrow arrow-left" onclick="moveSlide(-1)">❮</div>
+        <div class="nav-arrow arrow-right" onclick="moveSlide(1)">❯</div>
+
+        <div class="slider-wrapper" id="slider"></div>
+      </div>
+
+      <section class="capability-section">
+        <div class="section-title">
+          <span class="tag">HOW I WORK</span>
+          <h2>THE CREATIVE FLOW</h2>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-card">
+            <span class="step-num">01</span>
+            <h4>Brief & Research</h4>
+            <p>
+              Understand goals, analyze target audience, and align on clear
+              creative directions and scope.
+            </p>
+          </div>
+
+          <div class="process-card">
+            <span class="step-num">02</span>
+            <h4>Concept & Structure</h4>
+            <p>
+              Brainstorm creative concepts, establish visual hierarchy, and
+              build initial drafts or layouts.
+            </p>
+          </div>
+
+          <div class="process-card">
+            <span class="step-num">03</span>
+            <h4>Design & Polish</h4>
+            <p>
+              Craft high-fidelity visuals, standardize style assets, and refine
+              every detail for maximum impact.
+            </p>
+          </div>
+
+          <div class="process-card">
+            <span class="step-num">04</span>
+            <h4>Delivery & Launch</h4>
+            <p>
+              Prepare print/digital production files, clean code handoffs, and
+              ensure flawless execution.
+            </p>
+          </div>
+        </div>
+
+        <div class="vault-banner">
+          <div class="vault-info">
+            <h3>Visual & Graphic Vault</h3>
+            <p>
+              Khám phá bộ sưu tập Graphic Design, Branding, Design System &
+              Video Editing.
+            </p>
+          </div>
+          <a href="graphic-design.html" class="btn-vault"
+            >Xem Sản Phẩm Visual ➔</a
+          >
+        </div>
+      </section>
+
+
+<!-- ==========================================
+ABOUT
+==========================================  -->
+<section id="about-section" class="about-section">
+    <div class="about-card">
+        
+        <div class="about-main-wrapper">
+            <div class="about-avatar-wrapper">
+                <div class="cyber-ring-outer"></div>
+                <div class="cyber-ring-inner"></div>
+                <img src="assets/img/avatar_0.png" alt="Nguyen Hoang Quan" class="cyber-avatar">
+            </div>
+
+            <div class="about-content">
+                <span class="tag">ABOUT ME & VISION</span>
+                <h2>SYSTEM THINKER WITH A CRAFTSMAN MINDSET</h2>
+                
+                <p>
+                    Combining a background in system thinking with an obsessive attention to visual craft, I design scalable digital products that seamlessly bridge user needs, business goals, and production code.
+
+                <div class="about-tags">
+                    <span>✦ System Thinking</span>
+                    <span>✦ Visual Craft</span>
+                    <span>✦ Product Strategy</span>
+                    <span>✦ End-to-End Execution</span>
+                </div>
+
+                <a href="pages/information.html" class="btn-about-more">Read My Story ➔</a>
+            </div>
+        </div>
+
+
+        <div class="about-arsenal">
+            <div class="arsenal-block">
+                <div class="arsenal-header">
+                    <span class="tag-sub">PRIMARY TOOLKIT</span>
+                </div>
+                
+                <div class="tools-grid">
+                    <div class="tool-card active">
+                        <span class="tool-name">FIGMA</span>
+                    </div>
+                    <div class="tool-card active">
+                        <span class="tool-name">VS CODE</span>
+                    </div>
+                    <div class="tool-card active">
+                        <span class="tool-name">PHOTOSHOP</span>
+                    </div>
+                    <div class="tool-card active">
+                        <span class="tool-name">ILLUSTRATOR</span>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-name">HTML / CSS</span>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-name">JAVASCRIPT</span>
+                    </div>
+                </div>
+            </div> <div class="arsenal-block margin-top-sm">
+                <div class="arsenal-header">
+                    <span class="tag-sub">LANGUAGES</span>
+                </div>
+                <div class="tools-grid languages-grid">
+                    <div class="tool-card active">
+                        <span class="tool-name">ENGLISH - PROFESSIONAL</span>
+                    </div>
+                    <div class="tool-card active">
+                        <span class="tool-name">VIETNAMESE - NATIVE</span>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-name">CHINESE - ELEMENTARY</span>
+                    </div>
+                </div>
+            </div>
+        </div>      
+</section>
+
+
+      
+      <footer class="footer-section">
+        <div class="footer-card">
+          <h2>READY TO BUILD AN EXCEPTIONAL DIGITAL PRODUCT?</h2>
+          <p>
+            Looking for a Product Designer with a systems mindset and end-to-end
+            execution—from Figma to Code? Let’s connect!
+          </p>
+
+          <div class="footer-actions">
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=nguyenhoangquan.uxui@gmail.com&su=[Job%20Opportunity]%20Connecting%20via%20Portfolio"
+              target="_blank"
+              class="btn-primary-cta"
+            >
+              📩 Send Direct Email
+            </a>
+            <a
+              href="./assets/CV_Nguyen_Hoang_Quan.pdf"
+              download="CV_Nguyen_Hoang_Quan.pdf"
+              class="btn-secondary-cta"
+              >📄 Download CV (PDF)</a
+            >
+          </div>
+
+          <div class="footer-bottom">
+            <p>© 2026 Nguyen Hoang Quan. Designed & Coded with Discipline.</p>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/quannolan/" target="_blank"
+                >LinkedIn</a
+              >
+              <a href="https://www.behance.net/quannolan" target="_blank"
+                >Behance</a
+              >
+              <a href="#" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
 
-    <div class="carousel">
-      <div class="card side small"><img src="img/card-img-1.png" alt="Phone"></div>
-      <div class="card side"><img src="img/card-img-1.png" alt="Phone"></div>
-      <div class="card center"><img src="img/card-img-1.png" alt="Phone"></div>
-      <div class="card side"><img src="img/card-img-1.png" alt="Phone"></div>
-      <div class="card side small"><img src="img/card-img-1.png" alt="Phone"></div>
+    <div id="case-study-modal" class="modal-overlay">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <div class="modal-header">
+          <span class="modal-tag" id="modal-tag">UX/UI CASE STUDY</span>
+          <h2 id="modal-title">Project Title</h2>
+        </div>
+        <div class="modal-body">
+          <img
+            id="modal-image"
+            src=""
+            alt="Project Preview"
+            class="modal-hero-img"
+          />
+
+          <div class="modal-grid">
+            <div class="modal-section">
+              <h4>🎯 Problem Statement</h4>
+              <p id="modal-problem">Nội dung bài toán...</p>
+            </div>
+            <div class="modal-section">
+              <h4>💡 UX Solution</h4>
+              <p id="modal-solution">Giải pháp thiết kế...</p>
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <h4>🚀 Impact & Result</h4>
+            <p id="modal-impact">Kết quả đạt được...</p>
+          </div>
+
+          <div class="modal-footer-cta">
+            <a href="blog.html" class="btn-read-full"
+              >Đọc Case Study Chi Tiết ➔</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="play-button-wrapper">
-        <button class="play-btn"></button>
-    </div>
-
-    <div class="footer-nav">
-      <a href="information.html" class="nav-link">Information</a>
-      <a href="graphic-design.html" class="nav-link">Graphic Design</a>
-      <a href="blog.html" class="nav-link">Blog</a>
-    </div>
-
-</div>
-<script src="script.js"></script>
-</body>
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>
