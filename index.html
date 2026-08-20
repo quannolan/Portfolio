@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nguyen Hoang Quan | Product Designer Portfolio</title>
+    <title>Quan Nolan</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,8 +13,14 @@
       rel="stylesheet"
     />
 
+    <!-- Stylesheet & Favicon -->
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+    <!-- Phosphor Icons CDN -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
   </head>
+
   <body>
     <canvas id="interactive-canvas"></canvas>
 
@@ -37,13 +44,12 @@
       <div class="showcase-panel">
         <div class="nav-arrow arrow-left" onclick="moveSlide(-1)">❮</div>
         <div class="nav-arrow arrow-right" onclick="moveSlide(1)">❯</div>
-
         <div class="slider-wrapper" id="slider"></div>
       </div>
 
       <section class="capability-section">
         <div class="section-title">
-          <span class="tag">HOW I WORK</span>
+          <span class="tag">PROGRESS</span>
           <h2>THE CREATIVE FLOW</h2>
         </div>
 
@@ -85,18 +91,75 @@
           </div>
         </div>
 
-        <div class="vault-banner">
-          <div class="vault-info">
-            <h3>Visual & Graphic Vault</h3>
-            <p>
-              Khám phá bộ sưu tập Graphic Design, Branding, Design System &
-              Video Editing.
-            </p>
-          </div>
-          <a href="graphic-design.html" class="btn-vault"
-            >Xem Sản Phẩm Visual ➔</a
-          >
-        </div>
+
+      <!-- ============================================== -->
+      <!-- 📌 HEADING CHO KHU VỰC SERVICES -->
+      <!-- ============================================== -->
+      <div class="services-header margin-top-md">
+        <!-- Tag nhỏ định danh section -->
+        <span class="tag-sub">SERVICES</span>
+        
+        <!-- Tiêu đề lớn đồng bộ style Cyberpunk -->
+        <h3 class="section-title-sm">PROFESSIONAL SERVICES</h3>
+        
+        <!-- Subtitle giải thích mượt mà -->
+        <p class="section-desc-sm">
+          End-to-end design solutions, scalable systems, and execution-ready digital assets tailored to drive business growth and user engagement.
+        </p>
+      </div>
+        
+
+<!-- ============================================== -->
+<!-- 📌 4 CARDS DỊCH VỤ - ICON NÉT MẢNH / TINH XẢO -->
+<!-- ============================================== -->
+<div class="services-grid">
+  
+  <!-- Card 1: Web & Product Design -->
+  <a href="graphic-design.html#web-product" class="service-card cyber-card">
+    <div class="cyber-corner top-left"></div>
+    <div class="cyber-corner bottom-right"></div>
+    <div class="card-icon">
+      <i class="ph ph-layout"></i> <!-- Nét mảnh chuẩn Tech -->
+    </div>
+    <h4 class="card-title">01. Web & Product Design</h4>
+    <span class="card-action">EXPLORE SOLUTIONS ➔</span>
+  </a>
+
+  <!-- Card 2: Packaging & Publication -->
+  <a href="graphic-design.html#packaging" class="service-card cyber-card">
+    <div class="cyber-corner top-left"></div>
+    <div class="cyber-corner bottom-right"></div>
+    <div class="card-icon">
+      <i class="ph ph-package"></i> <!-- Nét mảnh chuẩn Tech -->
+    </div>
+    <h4 class="card-title">02. Packaging & Editorial</h4>
+    <span class="card-action">EXPLORE SOLUTIONS ➔</span>
+  </a>
+
+  <!-- Card 3: Marketing & Campaign Visuals -->
+  <a href="graphic-design.html#marketing" class="service-card cyber-card">
+    <div class="cyber-corner top-left"></div>
+    <div class="cyber-corner bottom-right"></div>
+    <div class="card-icon">
+      <i class="ph ph-megaphone"></i> <!-- Nét mảnh chuẩn Tech -->
+    </div>
+    <h4 class="card-title">03. Marketing & Campaign</h4>
+    <span class="card-action">EXPLORE SOLUTIONS ➔</span>
+  </a>
+
+  <!-- Card 4: Motion & Video Editing -->
+  <a href="graphic-design.html#motion" class="service-card cyber-card">
+    <div class="cyber-corner top-left"></div>
+    <div class="cyber-corner bottom-right"></div>
+    <div class="card-icon">
+      <i class="ph ph-film-strip"></i> <!-- Nét mảnh chuẩn Tech -->
+    </div>
+    <h4 class="card-title">04. Motion & Video Editing</h4>
+    <span class="card-action">EXPLORE SOLUTIONS ➔</span>
+  </a>
+
+</div>
+
       </section>
 
 
@@ -231,8 +294,7 @@ ABOUT
             id="modal-image"
             src=""
             alt="Project Preview"
-            class="modal-hero-img"
-          />
+            class="modal-hero-img"/>
 
           <div class="modal-grid">
             <div class="modal-section">
@@ -250,13 +312,39 @@ ABOUT
             <p id="modal-impact">Kết quả đạt được...</p>
           </div>
 
+          <!-- 📌 FILE: index.html -->
+          <!-- 💡 MỤC ĐÍCH: Thêm id="modal-btn-link" để JS cập nhật link tương ứng theo từng dự án -->
+
           <div class="modal-footer-cta">
-            <a href="blog.html" class="btn-read-full"
-              >Đọc Case Study Chi Tiết ➔</a
-            >
+            <a href="#" id="modal-btn-link" class="btn-read-full">
+              Đọc Case Study Chi Tiết ➔
+            </a>
           </div>
+
         </div>
       </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 📌 FLOATING CYBER CONTACT BUBBLE (ZALO & WHATSAPP) -->
+    <!-- ============================================== -->
+    <div class="cyber-float-wrapper">
+      <!-- Sub-button 1: WhatsApp -->
+      <a href="https://wa.me/84972749324" target="_blank" class="float-btn whatsapp-btn" title="Chat on WhatsApp">
+        <i class="ph-bold ph-whatsapp-logo"></i>
+        <span class="btn-label">WhatsApp</span>
+      </a>
+
+      <!-- Sub-button 2: Zalo -->
+      <a href="https://zalo.me/84972749324" target="_blank" class="float-btn zalo-btn" title="Chat qua Zalo">
+        <i class="ph-bold ph-chat-circle-dots"></i>
+        <span class="btn-label">Zalo</span>
+      </a>
+
+      <!-- Main Trigger Button -->
+      <button class="float-main-btn" aria-label="Contact Options">
+        <i class="ph-bold ph-chats-teardrop"></i>
+      </button>
     </div>
 
     <script src="assets/js/script.js"></script>

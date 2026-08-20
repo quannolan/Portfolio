@@ -6,33 +6,36 @@ const PROJECTS_DATA = [
         id: 'bdapp-web',
         title: 'BDApp Website',
         category: 'Product Design',
-        image: 'assets/img/bdapp.png', // Thay đường dẫn ảnh của bro vào đây
+        image: 'assets/img/bdapp-main.png',
         bgColor: '#064e3b',
         problem: 'Luồng trải nghiệm người dùng phức tạp, tỷ lệ drop-off cao ở bước onboarding.',
         solution: 'Tái cấu trúc Information Architecture, tối ưu hóa Design System trên Figma.',
         impact: 'Tăng 35% tỷ lệ hoàn tất đăng ký, giảm 20% thời gian xử lý giao diện.',
+        link: 'pages/case-bdapp.html', // 👈 Dẫn sang trang riêng BDApp
         active: false
     },
     {
         id: 'simply-merchant',
         title: 'Simply Merchant',
         category: 'Website Design',
-        image: 'assets/img/simply-merchant.png', // Thay đường dẫn ảnh của bro vào đây
+        image: 'assets/img/simply-main.png',
         bgColor: '#1e1b4b',
         problem: 'Giao diện quản lý đơn hàng và doanh thu phức tạp, khiến chủ cửa hàng khó thao tác nhanh.',
         solution: 'Thiết kế Dashboard tối giản, chuẩn hóa UI Component và luồng xử lý đơn hàng 1-click.',
         impact: 'Tối ưu 30% thời gian xử lý đơn hàng daily cho merchant.',
-        active: true // Card ở giữa active
+        link: 'pages/case-simply.html', // 👈 Dẫn sang trang riêng Simply
+        active: true
     },
     {
         id: 'gogofix-app',
         title: 'Gogofix App',
         category: 'Product Design',
-        image: 'assets/img/gogofix.png', // Thay đường dẫn ảnh của bro vào đây
+        image: 'assets/img/gogofix-main.png',
         bgColor: '#312e81',
         problem: 'Luồng đặt dịch vụ cứu hộ/sửa chữa chưa trực quan, khó theo dõi vị trí thợ theo thời gian thực.',
         solution: 'Tối ưu UX booking flow còn 3 bước, tích hợp Real-time Tracking Map trực quan.',
         impact: 'Tăng 40% trải nghiệm hài lòng của người dùng khi sử dụng dịch vụ khẩn cấp.',
+        link: 'pages/case-gogofix.html', // 👈 Dẫn sang trang riêng Gogofix
         active: false
     }
 ];
@@ -90,7 +93,11 @@ function moveSlide(direction) {
     handleCardHover(cards[nextIndex]);
 }
 
-// MODAL LOGIC
+// ==============================================
+// 📌 MODAL LOGIC (FIX NÚT X + BẤM ESC / OVERLAY ĐỂ THOÁT)
+// ==============================================
+
+// Hàm mở Modal
 function openProjectModal(id) {
     const project = PROJECTS_DATA.find(p => p.id === id);
     if (!project) return;
@@ -102,12 +109,39 @@ function openProjectModal(id) {
     document.getElementById('modal-solution').innerText = project.solution;
     document.getElementById('modal-impact').innerText = project.impact;
 
-    document.getElementById('case-study-modal').classList.add('active');
+    const btnLink = document.getElementById('modal-btn-link');
+    if (btnLink && project.link) {
+        btnLink.href = project.link;
+    }
+
+    const modal = document.getElementById('case-study-modal');
+    if (modal) {
+        modal.classList.add('active');
+    }
 }
 
+// Hàm đóng Modal (Triệt để)
 function closeModal() {
-    document.getElementById('case-study-modal').classList.remove('active');
+    const modal = document.getElementById('case-study-modal');
+    if (modal) {
+        modal.classList.remove('active');
+    }
 }
+
+// 🌟 THÊM 1: Bấm phím ESC trên bàn phím để đóng Modal
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+});
+
+// 🌟 THÊM 2: Bấm vào vùng nền đen bên ngoài Modal để đóng
+document.addEventListener('click', function(e) {
+    const modal = document.getElementById('case-study-modal');
+    if (e.target === modal) {
+        closeModal();
+    }
+});
 
 // ========================================================
 // 2. CANVAS BACKGROUND INTERACTIVE

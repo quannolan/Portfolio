@@ -100,18 +100,21 @@ header {
 }
 
 /* ========================================================
-   3. SHOWCASE SLIDER 3D (HOVER INTERACTIONS)
+   📌 3. SHOWCASE SLIDER 3D (ĐÃ FIX CÂN ĐỐI CHUẨN DỌC)
    ======================================================== */
 .showcase-panel {
     background: rgba(10, 13, 20, 0.85);
     border: 1px solid rgba(0, 240, 255, 0.15);
     border-radius: 32px;
-    /* padding: 60px 40px;s */
+    padding: 40px 20px; /* ✅ Bật padding 40px trên/dưới để tạo khoảng thở an toàn */
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
     margin-bottom: 50px;
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center; /* ✅ Căn giữa toàn bộ Slider theo chiều dọc */
+    justify-content: center;
 }
 
 .slider-wrapper {
@@ -121,8 +124,8 @@ header {
     position: relative;
     gap: 20px;
     width: 100%;
-    padding: 20px 0;
-    min-height: 480px;
+    padding: 10px 0;
+    min-height: 460px; /* ✅ Bóp nhẹ chiều cao tối thiểu cho vừa vặn */
 }
 
 .mockup-card {
@@ -132,7 +135,7 @@ header {
     border: 1px solid rgba(255, 255, 255, 0.05);
     overflow: hidden;
     position: relative;
-    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     opacity: 0.35;
     transform: scale(0.85);
     cursor: pointer;
@@ -143,15 +146,15 @@ header {
 /* HOVER VÀO CARD PHỤ (INACTIVE CARDS) */
 .mockup-card:not(.active):hover {
     opacity: 0.75;
-    transform: scale(0.92) translateY(-8px);
+    transform: scale(0.9) translateY(-4px); /* ✅ Giảm độ nảy để không tràn lề */
     border-color: rgba(0, 240, 255, 0.4);
     box-shadow: 0 12px 30px rgba(0, 240, 255, 0.15);
 }
 
 /* CARD ACTIVE (CHÍNH GIỮA) */
 .mockup-card.active {
-    width: 240px;
-    height: 440px;
+    width: 230px;  /* ✅ Điều chỉnh vừa vặn tỉ lệ */
+    height: 420px;
     opacity: 1;
     transform: scale(1);
     border-color: #00f0ff;
@@ -159,9 +162,9 @@ header {
     z-index: 10;
 }
 
-/* HOVER VÀO CARD ACTIVE */
+/* HOVER VÀO CARD ACTIVE - NỔI BẬT NHƯNG NẰM GỌN TRONG KHUNG */
 .mockup-card.active:hover {
-    transform: scale(1.03) translateY(-10px);
+    transform: scale(1.03); /* ✅ Bỏ translateY(-10px) để Card phóng to đều từ tâm, không bị giật lên trên */
     box-shadow: 0 0 40px rgba(0, 240, 255, 0.6), 0 25px 50px rgba(0,0,0,0.9);
 }
 
@@ -332,54 +335,297 @@ header {
     line-height: 1.6;
 }
 
-/* VAULT BANNER HOVER */
-.vault-banner {
-    background: linear-gradient(135deg, rgba(0, 240, 255, 0.08) 0%, rgba(10, 13, 20, 0.9) 100%);
-    border: 1px solid rgba(0, 240, 255, 0.25);
-    border-radius: 24px;
-    padding: 32px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    backdrop-filter: blur(10px);
-    transition: all 0.4s ease;
+
+/* ============================================== */
+/* 📌 STYLE HEADING CHO VISUAL & GRAPHIC VAULT    */
+/* ============================================== */
+
+.services-header {
+  text-align: center;
+  margin-bottom: 32px;
 }
 
-.vault-banner:hover {
-    border-color: rgba(0, 240, 255, 0.6);
-    box-shadow: 0 15px 40px rgba(0, 240, 255, 0.15);
+.margin-top-md {
+  margin-top: 48px; /* Khoảng cách đẩy xuống khỏi 4 bước Quy trình ở trên */
 }
 
-.vault-info h3 {
-    font-size: 20px;
-    color: #ffffff;
-    margin-bottom: 6px;
+/* Tag nhỏ màu Cyan */
+.services-header .tag-sub {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #00f0ff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
 }
 
-.vault-info p {
-    color: #8a8a93;
-    font-size: 14px;
+/* Tiêu đề chính */
+.services-header .section-title-sm {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
 }
 
-.btn-vault {
-    background: transparent;
-    color: #00f0ff;
-    border: 1px solid #00f0ff;
-    padding: 12px 24px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    white-space: nowrap;
+/* Subtitle mô tả ngắn */
+.services-header .section-desc-sm {
+  font-size: 14px;
+  color: #8a8a93;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
-.btn-vault:hover {
-    background: #00f0ff;
-    color: #000;
-    box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
-    transform: translateY(-2px);
+/* ============================================== */
+/* 📌 CSS DỊCH VỤ - LƯỚI 2X2 CYBER / TECH HIGH-END */
+/* ============================================== */
+
+/* Lưới 2x2 rộng rãi, đầm mắt */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Cố định 2 cột trên Desktop */
+  gap: 28px;
+  max-width: 1000px;                      /* Bóp chiều rộng tổng để Card cực bề thế */
+  margin: 40px auto 0 auto;               /* Căn giữa toàn bộ khối */
 }
+
+/* Base Card Style - Màu System chính chủ */
+.cyber-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 56px 36px 40px 36px;            /* Padding to đầm mắt */
+  min-height: 260px;                       /* Chiều cao cực sang */
+  
+  background: rgba(10, 13, 20, 0.75);     /* Color system chính gốc */
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-radius: 20px;
+  
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+/* Hiệu ứng đường vân Lưới Cyber chìm phía sau Card */
+.cyber-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.05) 0%, transparent 100%);
+  opacity: 0.5;
+  transition: opacity 0.4s ease;
+}
+
+/* Điểm nhấn Cyber góc (Corner Accents) */
+.cyber-corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: #00f0ff;
+  border-style: solid;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.cyber-corner.top-left {
+  top: 12px;
+  left: 12px;
+  border-width: 2px 0 0 2px;
+}
+
+.cyber-corner.bottom-right {
+  bottom: 12px;
+  right: 12px;
+  border-width: 0 2px 2px 0;
+}
+
+/* Icon bóp gọn tinh xảo, không bị phồng nét */
+.cyber-card .card-icon {
+  font-size: 2.4rem;                       /* Size 2.4rem chuẩn thanh thoát */
+  color: #00f0ff;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 6px rgba(0, 240, 255, 0.25));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Tiêu đề Card đậm nét Cyber */
+.cyber-card .card-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 18px;                         /* Cỡ chữ 18px hoành tráng cho Card 2x2 */
+  font-weight: 700;
+  color: #f1f5f9;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+/* Nút Action nhỏ hiện ra khi hover */
+.cyber-card .card-action {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #00f0ff;
+  letter-spacing: 1.5px;
+  opacity: 0.6;
+  transform: translateY(4px);
+  transition: all 0.3s ease;
+}
+
+/* ⚡ HOVER EFFECTS: CYBER / TECH ELEVATION */
+.cyber-card:hover {
+  border-color: rgba(0, 240, 255, 0.8);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 
+              0 0 30px rgba(0, 240, 255, 0.25);
+  background: rgba(10, 15, 26, 0.9);
+}
+
+.cyber-card:hover::before {
+  opacity: 1;
+}
+
+/* Sáng góc Cyber khi hover */
+.cyber-card:hover .cyber-corner {
+  opacity: 1;
+  width: 14px;
+  height: 14px;
+  box-shadow: 0 0 8px #00f0ff;
+}
+
+.cyber-card:hover .card-title {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.8);
+}
+
+.cyber-card:hover .card-action {
+  opacity: 1;
+  transform: translateY(0);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.8);
+}
+
+/* ============================================== */
+/* 📌 CHỈNH ICON LẮC NHẸ 2 NHỊP RỒI DỪNG TINH TẾ */
+/* ============================================== */
+
+/* Keyframe lắc 2 nhịp trái - phải mượt mà */
+@keyframes cyber-wiggle {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-10deg) scale(1.12); }
+  50% { transform: rotate(10deg) scale(1.12); }
+  75% { transform: rotate(-5deg) scale(1.12); }
+  100% { transform: rotate(0deg) scale(1.12); }
+}
+
+/* Áp dụng animation chạy đúng 1 lần (0.4s) rồi giữ nguyên (forwards) */
+.cyber-card:hover .card-icon {
+  animation: cyber-wiggle 0.8s ease-in-out forwards;
+}
+
+/* Responsive cho Mobile */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;            /* Về 1 cột khi xem trên điện thoại */
+    gap: 20px;
+  }
+}
+
+/* ============================================== */
+/* 📌 FIX FULL WIDTH CHUẨN LỀ VỚI CÁC SECTION KHÁC */
+/* ============================================== */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Cố định 2 cột rộng rãi */
+  gap: 28px;
+  width: 100%;                           /* Kéo full 100% chiều rộng container */
+  max-width: 100% !important;            /* Bỏ giới hạn 1000px cũ để tràn lề */
+  margin-top: 40px;
+}
+
+/* ============================================== */
+/* 📌 BÓP GỌN ICON TINH XẢO, KHÔNG BỊ PHỒNG NÉT   */
+/* ============================================== */
+
+.cyber-card .card-icon {
+  font-size: 2.4rem !important; /* Giảm cỡ icon cho vừa vặn, thanh thoát */
+  color: #00f0ff;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 6px rgba(0, 240, 255, 0.25));
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================== */
+/* 📌 HIỆU ỨNG ĐỂM SÁNG CHẠY QUANH KHUNG KHI HOVER */
+/* ============================================== */
+
+/* 1. Bổ sung position relative và chuẩn bị khung chứa vệt sáng */
+.cyber-card {
+  position: relative;
+  overflow: hidden; /* Giữ điểm sáng chạy trong viền */
+  z-index: 1;
+}
+
+/* 2. Tạo điểm sáng/vệt sáng laser (chạy chầm chậm ngầm phía sau) */
+.cyber-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  /* Conic gradient tạo 2 vệt sáng Cyan đối xứng 180 độ */
+  background: conic-gradient(
+    transparent 0deg,
+    transparent 140deg,
+    #00f0ff 170deg,
+    transparent 180deg,
+    transparent 320deg,
+    #00f0ff 350deg,
+    transparent 360deg
+  );
+  opacity: 0; /* Mặc định ẩn */
+  transition: opacity 0.4s ease;
+  z-index: -2;
+  animation: border-rotate 4s linear infinite;
+}
+
+/* 3. Lớp nền đè lên trên để chỉ lộ ra phần viền (Border) */
+.cyber-card::before {
+  content: '';
+  position: absolute;
+  inset: 1px; /* Độ dày viền = 1px */
+  background: rgba(10, 13, 20, 0.95); /* Màu nền gốc của Card */
+  border-radius: 19px; /* Khớp với border-radius 20px của Card */
+  z-index: -1;
+}
+
+/* 4. KEYFRAME XOAY VỆT SÁNG 360 ĐỘ */
+@keyframes border-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 5. HOVER: HIỆN VỆT SÁNG CHẠY XUNG QUANH KHUNG */
+.cyber-card:hover::after {
+  opacity: 1; /* Hiện vệt sáng lên khi Hover */
+}
+
 
 /* ========================================================
    5. CASE STUDY MODAL POPUP
@@ -1155,4 +1401,104 @@ section,
         padding-top: 50px !important;
         padding-bottom: 50px !important;
     }
+}
+
+/* ============================================== */
+/* 📌 STYLE FLOATING CONTACT BUBBLE CYBERPUNK     */
+/* ============================================== */
+
+.cyber-float-wrapper {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* Nút chính (Trigger Icon) */
+.float-main-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(10, 13, 20, 0.85);
+  border: 1px solid #00f0ff;
+  color: #00f0ff;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.float-main-btn:hover {
+  background: #00f0ff;
+  color: #000000;
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.8);
+  transform: scale(1.1) rotate(15deg);
+}
+
+/* 2 Nút Phụ (Bình thường ẩn, Hover nhóm nút mới hiện) */
+.float-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px) scale(0.8);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+}
+
+/* Style riêng Zalo (Cyan Blue) */
+.zalo-btn {
+  background: rgba(0, 104, 255, 0.2);
+  border: 1px solid #0068ff;
+  color: #388eff;
+}
+
+/* Style riêng WhatsApp (Green Cyber) */
+.whatsapp-btn {
+  background: rgba(37, 211, 102, 0.2);
+  border: 1px solid #25d366;
+  color: #25d366;
+}
+
+/* Hover hiệu ứng cho nút phụ */
+.zalo-btn:hover {
+  background: #0068ff;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 104, 255, 0.6);
+}
+
+.whatsapp-btn:hover {
+  background: #25d366;
+  color: #000;
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+}
+
+/* ⚡ RÊ CHUỘT VÀO VÙNG FLOATING -> XÒE 2 NÚT RA */
+.cyber-float-wrapper:hover .float-btn {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Responsive Mobile: Chỉnh khoảng cách gọn lại */
+@media (max-width: 768px) {
+  .cyber-float-wrapper {
+    bottom: 20px;
+    right: 20px;
+  }
 }

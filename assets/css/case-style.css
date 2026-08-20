@@ -1,0 +1,355 @@
+/* ========================================================
+   📌 FULL-WIDTH HERO CASE STUDY SYSTEM
+   ======================================================== */
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --border-color: #e2e8f0;
+  --accent-color: #0284c7;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Container chính cho nội dung bên dưới */
+.case-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ==============================================
+   1. HERO BANNER tràn 100% màn hình
+   ============================================== */
+.hero-fullwidth {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 100px;
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 80px 0 60px; /* Bỏ padding 2 bên của hero-content nếu có */
+  width: 100%;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 24px;
+  transition: color 0.2s ease;
+}
+
+.btn-back:hover {
+  color: #38bdf8;
+}
+
+/* 2. Tiêu đề căn lề trái chuẩn */
+.case-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin-left: 0; /* Ép sát lề trái container */
+  padding-left: 0;
+}
+
+/* 3. Mô tả căn lề trái chuẩn */
+.case-subtitle {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+  max-width: 800px;
+  margin-left: 0; /* Ép sát lề trái container */
+  padding-left: 0;
+}
+/* ==============================================
+   OVERVIEW GRID FIX LAYOUT
+   ============================================== */
+/* 📌 FILE: assets/css/case-style.css */
+
+/* Chia đều 50% - 50% cho 2 cột */
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 👈 Đổi thành 1fr 1fr để chia chuẩn 50/50 */
+  gap: 48px; /* Khoảng cách giữa 2 cột */
+  align-items: center; /* Căn giữa dọc */
+  margin-bottom: 80px;
+  width: 100%;
+}
+
+/* Cột bên trái tự ôm trọn 50% chiều rộng */
+.meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Card bên phải ôm trọn 50% chiều rộng còn lại */
+.showcase-card {
+  width: 100%;
+  height: 480px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+  background: #f8fafc;
+}
+
+.showcase-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  padding: 1px;
+  display: block;
+}
+
+/* 📌 FILE: assets/css/case-style.css */
+
+/* 1. ĐƯỜNG KẺ PHÂN CÁCH MỎNG NHẸ */
+.meta-item {
+  border-bottom: 1px solid #ececec; /* 👈 Kẻ ngang mảnh, tinh tế */
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+}
+
+.meta-item:last-of-type {
+  border-bottom: none; /* Bỏ kẻ ở mục cuối */
+  margin-bottom: 0;
+}
+
+.meta-item h5 {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #94a3b8; /* Màu xám nhạt */
+  margin-bottom: 4px;
+}
+
+.meta-item p {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* 2. NÚT BẤM MINIMAL LIGHTWEIGHT (HẾT NẶNG) */
+.meta-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 8px;
+}
+
+/* Base style cho nút cực nhẹ */
+.btn-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 0; /* Bỏ background đặc, chuyển sang dạng Text Button */
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+/* Nút Live Website - Chữ màu Accent + Hover gạch chân */
+.btn-meta.primary {
+  color: #00b9c7;
+  border: none;
+}
+
+.btn-meta.primary:hover {
+  color: #0369a1;
+  transform: translateX(3px); /* Nhích nhẹ sang phải khi hover */
+}
+
+/* Nút Figma - Màu chữ xám tối tối giản */
+.btn-meta.secondary {
+  color: #64748b;
+  border: none;
+}
+
+.btn-meta.secondary:hover {
+  color: #0f172a;
+  transform: translateX(3px);
+}
+/* ==============================================
+   SHOWCASE GRID FOR DELIVERABLES & MOTION
+   ============================================== */
+
+
+/* Tăng khoảng cách giữa các Section bài viết */
+.case-section {
+  margin-bottom: 80px; /* 👈 Đổi gap thành margin-bottom có px chuẩn đét */
+}
+
+/* Xóa margin của section cuối cùng để không bị dư khoảng trắng footer */
+/* .case-section:last-of-type {
+  margin-bottom: 40px;
+} */
+
+/* Grid 2 cột cho Brand/Icon/Packaging */
+.deliverables-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 24px 0 40px;
+}
+
+.bento-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #0284c7;
+  margin-bottom: 6px;
+}
+
+.bento-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.bento-card p {
+  font-size: 14px;
+  color: #475569;
+  margin-bottom: 16px;
+}
+
+.bento-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  margin-top: auto;
+}
+
+/* Card tràn lề cho Design System */
+.showcase-card-wide {
+  width: 100%;
+  max-height: 520px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  margin: 24px 0 40px;
+}
+
+.showcase-card-wide img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+/* Khung bọc Video Prototype */
+.video-showcase {
+  width: 100%;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  margin: 24px 0 40px;
+  background: #000;
+}
+
+.video-showcase video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.impact-box {
+  background: #f0f9ff;
+  border-left: 4px solid var(--accent-color);
+  padding: 24px;
+  border-radius: 0 12px 12px 0;
+  margin: 24px 0;
+}
+
+.impact-box h4 {
+  color: #0369a1;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.impact-box p {
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+
+
+/* Navigation Footer */
+.case-footer {
+  border-top: 1px solid var(--border-color);
+  padding: 40px 0;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-nav-link {
+  text-decoration: none;
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+@media (max-width: 992px) {
+  .overview-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .case-title { font-size: 2.2rem; }
+}
+
